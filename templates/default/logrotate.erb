@@ -12,6 +12,9 @@
 <% @options.each do |o| -%>
   <%= o %>
 <% end -%>
+<%- if @dateformat %>
+  dateformat <%= @dateformat %>
+<%- end %>
 <%- if @sharedscripts %>
   sharedscripts
 <%- end %>

@@ -17,7 +17,7 @@
 # limitations under the License.
 #
 
-define :logrotate_app, :enable => true, :frequency => "weekly", :template => "logrotate.erb", :cookbook => "logrotate", :postrotate => nil, :prerotate => nil, :firstaction => nil, :lastaction => nil, :sharedscripts => false do
+define :logrotate_app, :enable => true, :frequency => "weekly", :template => "logrotate.erb", :cookbook => "logrotate", :postrotate => nil, :prerotate => nil, :firstaction => nil, :lastaction => nil, :sharedscripts => false, :dateformat => nil do
   include_recipe "logrotate"
 
   acceptable_options = ['missingok', 'compress', 'delaycompress', 'copytruncate', 'notifempty', 'delaycompress', 'ifempty', 'mailfirst', 'nocompress', 'nocopy', 'nocopytruncate', 'nocreate', 'nodelaycompress', 'nomail', 'nomissingok', 'noolddir', 'nosharedscripts', 'notifempty', 'sharedscripts', 'dateext']
@@ -50,6 +50,7 @@ define :logrotate_app, :enable => true, :frequency => "weekly", :template => "lo
         :prerotate => params[:prerotate],
         :firstaction => params[:firstaction],
         :lastaction => params[:lastaction],
+        :dateformat => params[:dateformat],
         :options => options
       )
     end
